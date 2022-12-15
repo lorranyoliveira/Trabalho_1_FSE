@@ -6,6 +6,8 @@ def muda_estado_output(pino: int):
     GPIO.setmode(GPIO.BCM)
     GPIO.setwarnings(False)
     GPIO.setup(pino,GPIO.OUT)
-    GPIO.output(pino,GPIO.HIGH)
-    time.sleep(5)
-    GPIO.output(pino,GPIO.LOW)
+    
+    if GPIO.input(pino)==0:
+        GPIO.output(pino,GPIO.HIGH)
+    else:
+        GPIO.output(pino,GPIO.LOW)

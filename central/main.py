@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 import json
 from threading import Thread
 from socket_central import socket_central
@@ -37,7 +37,7 @@ def menu():
     global opcao
     global sala
     
-    while opcao!='f' and opcao!='a' and opcao!='b' and opcao!='c' and opcao!='d' and opcao!='e': 
+    while opcao!='f': 
         display()
         print('----------- MENU PRINCIPAL ---------------')
         print('Escolha uma opcao:')
@@ -59,15 +59,15 @@ def menu():
                 
             socket_central(str(sys.argv[1]),int(sys.argv[2]), str(sala)+str(opcao))
             if opcao == 'a': 
-                escreverLog("Alterar estado Lampada 01 na sala " + sala)
+                escreverLog("Alterar estado Lampada 01 na sala " + str(sala))
             elif opcao == 'b': 
-                escreverLog("Alterar estado Lampada 02 na sala " + sala)
+                escreverLog("Alterar estado Lampada 02 na sala " + str(sala))
             elif opcao == 'c': 
-                escreverLog("Alterar estado Ar condicionado na sala " + sala)
+                escreverLog("Alterar estado Ar condicionado na sala " + str(sala))
             elif opcao == 'd': 
-                escreverLog("Alterar estado Projetor Multimidia na sala " + sala)
-            elif opcao == 'f': 
-                escreverLog("Alterar estado Alarme na sala " + sala)
+                escreverLog("Alterar estado Projetor Multimidia na sala " + str(sala))
+            elif opcao == 'e': 
+                escreverLog("Alterar estado Alarme na sala " + str(sala))
             
 
 if __name__ == '__main__':
