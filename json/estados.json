@@ -1,0 +1,126 @@
+{
+    "sala_01": [
+        {
+            "outputs": [
+                {
+                    "type": "lampada 01",
+                    "status": "OFF"
+                },
+                {
+                    "type": "lampada 02",
+                    "status": "OFF"
+                },
+                {
+                    "type": "projetor",
+                    "status": "OFF"
+                },
+                {
+                    "type": "ar-condicionado",
+                    "status": "OFF"
+                },
+                {
+                    "type": "alarme",
+                    "status": "ON"
+                }
+            ],
+            "inputs": [
+                {
+                    "type": "sensor de presenca",
+                    "status": 0
+                },
+                {
+                    "type": "sensor de fumaca",
+                    "status": 0
+                },
+                {
+                    "type": "janela",
+                    "status": "fechada"
+                },
+                {
+                    "type": "porta",
+                    "status": "fechada"
+                },
+                {
+                    "type": "contagem de pessoas - Entrada",
+                    "status": 0
+                },
+                {
+                    "type": "contagem de pessoas - Sa\u00edda",
+                    "status": 0
+                }
+            ],
+            "sensor_temperatura_umildade": [
+                {
+                    "type": "temperatura",
+                    "status": 0
+                },
+                {
+                    "type": "umidade",
+                    "status": 0
+                }
+            ]
+        }
+    ],
+    "sala_02": [
+        {
+            "outputs": [
+                {
+                    "type": "lampada 01",
+                    "status": "OFF"
+                },
+                {
+                    "type": "lampada 02",
+                    "status": "OFF"
+                },
+                {
+                    "type": "projetor",
+                    "status": "OFF"
+                },
+                {
+                    "type": "ar-condicionado",
+                    "status": "OFF"
+                },
+                {
+                    "type": "alarme",
+                    "status": "ON"
+                }
+            ],
+            "inputs": [
+                {
+                    "type": "sensor de presen\u00e7a",
+                    "status": 0
+                },
+                {
+                    "type": "sensor de fuma\u00e7a",
+                    "status": 0
+                },
+                {
+                    "type": "janela",
+                    "status": "fechada"
+                },
+                {
+                    "type": "porta",
+                    "status": "fechada"
+                },
+                {
+                    "type": "contagem de pessoas - Entrada",
+                    "status": 0
+                },
+                {
+                    "type": "contagem de pessoas - Sa\u00edda",
+                    "status": 0
+                }
+            ],
+            "sensor_temperatura_umildade": [
+                {
+                    "type": "temperatura",
+                    "status": 0
+                },
+                {
+                    "type": "umidade",
+                    "status": 0
+                }
+            ]
+        }
+    ]
+}

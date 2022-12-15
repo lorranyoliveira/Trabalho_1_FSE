@@ -11,9 +11,12 @@ if __name__ == '__main__':
         data = json.load(file)
         ip= str(data["ip_servidor_distribuido"])
         port= int(data["porta_servidor_distribuido"])
+        
+    with open(sys.argv[2]) as file:
+        data2 = json.load(file)
     
     # se comunica via socket como servidor central    
-    socket_menu = Thread(target=socket_distribuido, args=(ip,port, data))
+    socket_menu = Thread(target=socket_distribuido, args=(ip,port, data, data2))
     socket_menu.start()
     
     
