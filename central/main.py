@@ -34,8 +34,9 @@ def fraseLog(opcao: str, sala: int):
 
 def display():
     
-    with open('../json/estados.json') as file:
-        data = json.load(file)
+    file = open('../json/estados.json')
+    data = json.load(file)
+    file.close()
     
             
     print('----------- ESTADO SALA 01 ---------------')
@@ -69,6 +70,7 @@ def menu():
         print('f - Ligar modo anti incendio')
         print('g - Ligar modo de segurança via sensor Janela')
         print('h - Ligar modo de segurança via sensor Porta')
+        print('i - Atualizar status')
         print('s - sair')
         opcao = input()
         temp = opcao

@@ -1,7 +1,6 @@
-import json
 import socket
+from json_estados import gravajson, lerjson
 from input import muda_estado_input
-
 from output import muda_estado_output
 
 retorno = True
@@ -26,23 +25,24 @@ def socket_distribuido(_host: str,_port:int, data:any, data2:any):
         print ('Finalizando conexao do cliente', cliente)
         con.close()
 
-def gravajson(pino: int, sala: int):
-    file_estados = open("../json/estados.json", 'r')
-    data_estados = json.load(file_estados)
-    file_estados.close()
-        
 def verificaEscolha(sala: str, opcao: str, data: any, data2: any):
     global retorno
+   
+    data_estados = lerjson()
    
     if sala=='1':
         if opcao=='a':
             retorno = muda_estado_output(int(data["outputs"][0]["gpio"]))
+            data_estados["sala_01"][0]["outputs"][0]['status'] = retorno
         elif opcao=='b':
             retorno = muda_estado_output(int(data["outputs"][1]["gpio"]))
+            data_estados["sala_01"][0]["outputs"][1]['status'] = retorno
         elif opcao=='c':
             retorno = muda_estado_output(int(data["outputs"][3]["gpio"]))
+            data_estados["sala_01"][0]["outputs"][2]['status'] = retorno
         elif opcao=='d':
             retorno = muda_estado_output(int(data["outputs"][2]["gpio"]))
+            data_estados["sala_01"][0]["outputs"][3]['status'] = retorno
         elif opcao=='e':
             retorno = muda_estado_input(int(data["inputs"][0]["gpio"]), int(data["outputs"][4]["gpio"]))
         elif opcao=='f':
@@ -54,12 +54,16 @@ def verificaEscolha(sala: str, opcao: str, data: any, data2: any):
     elif sala=='2':
         if opcao=='a':
             retorno = muda_estado_output(int(data2["outputs"][0]["gpio"]))
+            data_estados["sala_02"][0]["outputs"][0]['status'] = retorno
         elif opcao=='b':
             retorno = muda_estado_output(int(data2["outputs"][1]["gpio"]))
+            data_estados["sala_02"][0]["outputs"][1]['status'] = retorno
         elif opcao=='c':
             retorno = muda_estado_output(int(data2["outputs"][3]["gpio"]))
+            data_estados["sala_02"][0]["outputs"][2]['status'] = retorno
         elif opcao=='d':
             retorno = muda_estado_output(int(data2["outputs"][2]["gpio"]))
+            data_estados["sala_02"][0]["outputs"][3]['status'] = retorno
         elif opcao=='e':
             retorno = muda_estado_input(int(data2["inputs"][0]["gpio"]), int(data2["outputs"][4]["gpio"]))
         elif opcao=='f':
@@ -68,3 +72,5 @@ def verificaEscolha(sala: str, opcao: str, data: any, data2: any):
             retorno = muda_estado_input(int(data2["inputs"][2]["gpio"]), int(data2["outputs"][4]["gpio"]))
         elif opcao=='h':
             retorno = muda_estado_input(int(data2["inputs"][3]["gpio"]), int(data2["outputs"][4]["gpio"]))
+    
+    gravajson(data_estados)

@@ -13,7 +13,7 @@ def muda_estado_input(pino: int, pino2: int):
     
     if GPIO.input(pino)==1:
         GPIO.output(pino2,GPIO.HIGH)
-        return True
+        return "ON"
     else:
         GPIO.output(pino2,GPIO.LOW)
-        return False
+        return "OFF"
