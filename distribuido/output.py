@@ -9,5 +9,7 @@ def muda_estado_output(pino: int):
     
     if GPIO.input(pino)==0:
         GPIO.output(pino,GPIO.HIGH)
+        return True
     else:
         GPIO.output(pino,GPIO.LOW)
+        return False
