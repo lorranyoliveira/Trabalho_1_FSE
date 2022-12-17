@@ -1,10 +1,13 @@
 import json
 from threading import Thread
 import sys
+from signal import signal, SIGPIPE, SIG_DFL
+
 
 from socket_distribuido import socket_distribuido
 
 if __name__ == '__main__':
+    
      
     #lê o arquivo de configuração mandado via parametro na linha de comando
     with open(sys.argv[1]) as file:

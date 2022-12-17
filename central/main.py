@@ -1,11 +1,14 @@
 from datetime import datetime
 import json
+import signal
 from threading import Thread
-from socket_central import socket_central
+from socket_central import  socket_central
 import sys
+from signal import signal, SIGPIPE, SIG_DFL
 
 opcao = -1
 sala = -1
+
 
 def escreverLog(text: str):
     log = open('log.csv', 'a')
@@ -59,7 +62,6 @@ def menu():
     global sala
     
     while opcao!='s': 
-        display()
         print('----------- MENU PRINCIPAL ---------------')
         print('Escolha uma opcao:')
         print('a - Alterar estado Lampada 01')
@@ -70,11 +72,11 @@ def menu():
         print('f - Ligar modo anti incendio')
         print('g - Ligar modo de segurança via sensor Janela')
         print('h - Ligar modo de segurança via sensor Porta')
-        print('i - Atualizar status')
+        print('i - Visualizar status salas')
         print('s - sair')
         opcao = input()
         temp = opcao
-        if temp!='s':
+        if temp!='s' and temp!='i':
             temp = 's'
             print('Informe a sala 1 ou 2:')
             sala = int(input())
@@ -84,17 +86,19 @@ def menu():
                 
             socket_central(str(sys.argv[1]),int(sys.argv[2]), str(sala)+str(opcao))
             fraseLog(opcao, sala)
+        elif temp=='i':
+            display()
+            
             
             
 if __name__ == '__main__':
     
+    
+    signal(SIGPIPE,SIG_DFL)
+    
+    
     socketMenu = Thread(target=menu)
     socketMenu.start()  
     
-    print(opcao)
-
-    socketThread = Thread(target=socket_central, args=(str(sys.argv[1]),int(sys.argv[2]), str(opcao)))
-    socketThread.start()         
-    socketMenu.join()
    
    

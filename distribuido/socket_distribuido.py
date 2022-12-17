@@ -1,5 +1,8 @@
+import json
+import pprint
 import socket
-from json_estados import gravajson, lerjson
+import socketserver
+from json_estados import lerjson
 from input import muda_estado_input
 from output import muda_estado_output
 
@@ -7,23 +10,22 @@ retorno = True
 
 def socket_distribuido(_host: str,_port:int, data:any, data2:any):
     global retorno
-    HOST = _host           # Endereco IP do Servidor
-    PORT = _port           # Porta que o Servidor esta
     tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    orig = (HOST, PORT)
+    orig = (_host, _port)
     tcp.bind(orig)
-    tcp.listen(1)
+    tcp.listen()
     while True:
         con, cliente = tcp.accept()
         print ('Concetado por', cliente)
         while True:
-            msg = con.recv(1024)
+            msg = con.recv(8192)
             if not msg: break
-
             temp = msg.decode()
-            verificaEscolha(temp[0], temp[1], data, data2)
+            data_estados = verificaEscolha(temp[0], temp[1], data, data2)
+            con.sendall(bytes(json.dumps(data_estados), encoding="UTF-8"))
         print ('Finalizando conexao do cliente', cliente)
-        con.close()
+            
+
 
 def verificaEscolha(sala: str, opcao: str, data: any, data2: any):
     global retorno
@@ -72,5 +74,4 @@ def verificaEscolha(sala: str, opcao: str, data: any, data2: any):
             retorno = muda_estado_input(int(data2["inputs"][2]["gpio"]), int(data2["outputs"][4]["gpio"]))
         elif opcao=='h':
             retorno = muda_estado_input(int(data2["inputs"][3]["gpio"]), int(data2["outputs"][4]["gpio"]))
-    
-    gravajson(data_estados)
+    return data_estados

@@ -1,11 +1,19 @@
+import json
 import socket
 
 def socket_central(host_rec: str, port_rec:int, msg:str):
-    HOST = host_rec         # Endereco IP do Servidor
-    PORT = port_rec    # Porta que o Servidor esta
+    
     tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    dest = (HOST, PORT)
+    dest = (host_rec, port_rec)
     tcp.connect(dest)
-    print ('Para sair use CTRL+X\n')
     tcp.send (msg.encode())
+    received = json.loads(tcp.recv(8192).decode("utf-8"))
     tcp.close()
+    gravajson(received)
+    
+    
+def gravajson(data_estados: any):
+    file_estados = open("../json/estados.json", 'w')
+    json.dump(data_estados, file_estados)
+    file_estados.close()
+    
