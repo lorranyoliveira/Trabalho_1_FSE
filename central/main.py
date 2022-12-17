@@ -73,6 +73,7 @@ def menu():
         print('g - Ligar modo de segurança via sensor Janela')
         print('h - Ligar modo de segurança via sensor Porta')
         print('i - Visualizar status salas')
+        print('j - Verificar temperatura')
         print('s - sair')
         opcao = input()
         temp = opcao

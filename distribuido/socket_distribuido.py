@@ -5,6 +5,7 @@ import socketserver
 from json_estados import lerjson
 from input import muda_estado_input
 from output import muda_estado_output
+from dht22_sensor_temp import sensor_temp
 
 retorno = True
 
@@ -29,10 +30,12 @@ def socket_distribuido(_host: str,_port:int, data:any, data2:any):
 
 def verificaEscolha(sala: str, opcao: str, data: any, data2: any):
     global retorno
-   
+    
     data_estados = lerjson()
+    
    
     if sala=='1':
+        
         if opcao=='a':
             retorno = muda_estado_output(int(data["outputs"][0]["gpio"]))
             data_estados["sala_01"][0]["outputs"][0]['status'] = retorno
@@ -53,7 +56,9 @@ def verificaEscolha(sala: str, opcao: str, data: any, data2: any):
             retorno = muda_estado_input(int(data["inputs"][2]["gpio"]), int(data["outputs"][4]["gpio"]))
         elif opcao=='h':
             retorno = muda_estado_input(int(data["inputs"][3]["gpio"]), int(data["outputs"][4]["gpio"]))
-    elif sala=='2':
+        elif opcao=='j':
+            sensor_temp(data["sensor_temperatura"][0]["gpio"])
+    elif sala=='2':        
         if opcao=='a':
             retorno = muda_estado_output(int(data2["outputs"][0]["gpio"]))
             data_estados["sala_02"][0]["outputs"][0]['status'] = retorno
@@ -74,4 +79,7 @@ def verificaEscolha(sala: str, opcao: str, data: any, data2: any):
             retorno = muda_estado_input(int(data2["inputs"][2]["gpio"]), int(data2["outputs"][4]["gpio"]))
         elif opcao=='h':
             retorno = muda_estado_input(int(data2["inputs"][3]["gpio"]), int(data2["outputs"][4]["gpio"]))
+        elif opcao=='j':
+            sensor_temp(data2["sensor_temperatura"][0]["gpio"])
+
     return data_estados
