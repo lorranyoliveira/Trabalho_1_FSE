@@ -47,14 +47,21 @@ def display():
     print('Lampada 02:          ' + data["sala_01"][0]["outputs"][1]["status"])
     print('Ar condicionado:     ' + data["sala_01"][0]["outputs"][3]["status"])
     print('Projetor Multimidia: ' + data["sala_01"][0]["outputs"][2]["status"])
-    print('Alarme:              ' + data["sala_01"][0]["outputs"][4]["status"])
+    print('Sensor de presença:  ' + data["sala_01"][0]["inputs"][0]["status"])
+    print('Sensor de fumaça     ' + data["sala_01"][0]["inputs"][1]["status"])
+    print('Sensor de janela:    ' + data["sala_01"][0]["inputs"][2]["status"])
+    print('Sensor de porta:     ' + data["sala_01"][0]["inputs"][3]["status"])
     print('------------------------------------------')
     print('----------- ESTADO SALA 02 ---------------')
     print('Lampada 01:         ' , data["sala_02"][0]["outputs"][0]["status"])
     print('Lampada 02:          ' + data["sala_02"][0]["outputs"][1]["status"])
     print('Ar condicionado:     ' + data["sala_02"][0]["outputs"][3]["status"])
     print('Projetor Multimidia: ' + data["sala_02"][0]["outputs"][2]["status"])
-    print('Alarme:              ' + data["sala_02"][0]["outputs"][4]["status"])
+    print('Sensor de presença:  ' + data["sala_02"][0]["inputs"][0]["status"])
+    print('Sensor de fumaça:    ' + data["sala_02"][0]["inputs"][1]["status"])
+    print('Sensor de janela:    ' + data["sala_02"][0]["inputs"][2]["status"])
+    print('Sensor de porta:     ' + data["sala_02"][0]["inputs"][3]["status"])
+    
     
 
 def menu():

@@ -1,5 +1,6 @@
 import json
 import socket
+from json_estados import gravajson
 
 def socket_central(host_rec: str, port_rec:int, msg:str):
     
@@ -11,9 +12,4 @@ def socket_central(host_rec: str, port_rec:int, msg:str):
     tcp.close()
     gravajson(received)
     
-    
-def gravajson(data_estados: any):
-    file_estados = open("../json/estados.json", 'w')
-    json.dump(data_estados, file_estados)
-    file_estados.close()
     

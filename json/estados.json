@@ -26,19 +26,19 @@
             "inputs": [
                 {
                     "type": "sensor de presenca",
-                    "status": 0
+                    "status": "OFF"
                 },
                 {
                     "type": "sensor de fumaca",
-                    "status": 0
+                    "status": "OFF"
                 },
                 {
                     "type": "janela",
-                    "status": "fechada"
+                    "status": "OFF"
                 },
                 {
                     "type": "porta",
-                    "status": "fechada"
+                    "status": "OFF"
                 },
                 {
                     "type": "contagem de pessoas - Entrada",
@@ -88,27 +88,27 @@
             "inputs": [
                 {
                     "type": "sensor de presen\u00e7a",
-                    "status": 0
+                    "status": "OFF"
                 },
                 {
                     "type": "sensor de fuma\u00e7a",
-                    "status": 0
+                    "status": "OFF"
                 },
                 {
                     "type": "janela",
-                    "status": "fechada"
+                    "status": "OFF"
                 },
                 {
                     "type": "porta",
-                    "status": "fechada"
+                    "status": "OFF"
                 },
                 {
                     "type": "contagem de pessoas - Entrada",
-                    "status": 0
+                    "status": "OFF"
                 },
                 {
                     "type": "contagem de pessoas - Sa\u00edda",
-                    "status": 0
+                    "status": "OFF"
                 }
             ],
             "sensor_temperatura_umildade": [
