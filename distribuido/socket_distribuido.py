@@ -50,12 +50,16 @@ def verificaEscolha(sala: str, opcao: str, data: any, data2: any):
             data_estados["sala_01"][0]["outputs"][2]['status'] = retorno
         elif opcao=='e':
             retorno = muda_estado_input(int(data["inputs"][0]["gpio"]), int(data["outputs"][4]["gpio"]))
+            data_estados["sala_01"][0]["inputs"][0]["status"] = retorno
         elif opcao=='f':
             retorno = muda_estado_input(int(data["inputs"][1]["gpio"]), int(data["outputs"][4]["gpio"]))
+            data_estados["sala_01"][0]["inputs"][1]["status"] = retorno
         elif opcao=='g':
             retorno = muda_estado_input(int(data["inputs"][2]["gpio"]), int(data["outputs"][4]["gpio"]))
+            data_estados["sala_01"][0]["inputs"][2]["status"] = retorno
         elif opcao=='h':
             retorno = muda_estado_input(int(data["inputs"][3]["gpio"]), int(data["outputs"][4]["gpio"]))
+            data_estados["sala_01"][0]["inputs"][3]["status"] = retorno
         elif opcao=='j':
             sensor_temp(data["sensor_temperatura"][0]["gpio"])
     elif sala=='2':        
@@ -73,12 +77,16 @@ def verificaEscolha(sala: str, opcao: str, data: any, data2: any):
             data_estados["sala_02"][0]["outputs"][2]['status'] = retorno
         elif opcao=='e':
             retorno = muda_estado_input(int(data2["inputs"][0]["gpio"]), int(data2["outputs"][4]["gpio"]))
+            data_estados["sala_02"][0]["inputs"][0]["status"] = retorno
         elif opcao=='f':
             retorno = muda_estado_input(int(data2["inputs"][1]["gpio"]), int(data2["outputs"][4]["gpio"]))
+            data_estados["sala_02"][0]["inputs"][1]["status"] = retorno
         elif opcao=='g':
             retorno = muda_estado_input(int(data2["inputs"][2]["gpio"]), int(data2["outputs"][4]["gpio"]))
+            data_estados["sala_02"][0]["inputs"][2]["status"] = retorno
         elif opcao=='h':
             retorno = muda_estado_input(int(data2["inputs"][3]["gpio"]), int(data2["outputs"][4]["gpio"]))
+            data_estados["sala_02"][0]["inputs"][3]["status"] = retorno
         elif opcao=='j':
             sensor_temp(data2["sensor_temperatura"][0]["gpio"])
             
