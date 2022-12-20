@@ -90,8 +90,9 @@ def verificaEscolha(sala: str, opcao: str, data: any, data2: any):
         elif opcao=='j':
             sensor_temp(data2["sensor_temperatura"][0]["gpio"])
             
-        gravajson(data_estados)
+        
+    gravajson(data_estados)
 
-        data_estados_atualizado = lerjson()
+    data_estados_atualizado = lerjson()
 
     return data_estados_atualizado
